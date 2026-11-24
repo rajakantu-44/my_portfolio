@@ -275,7 +275,8 @@ position: absolute;
 }
 
 .project-info:hover .project-details,
-.project-info:focus-within .project-details {
+.project-info:focus-within .project-details,
+.project-info.is-open .project-details {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -807,8 +808,23 @@ position: absolute;
     .skills-container { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-content: start; }
     .skill-card { width: auto; min-width: 0; height: 64px; }
     .projects-container { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-    .project-card { width: auto; }
-    .project-details { left: auto; right: 0; width: min(75vw, 330px); }
+    .project-card { width: auto; flex-wrap: wrap; }
+    .project-name,
+    .project-github,
+    .project-info { touch-action: manipulation; }
+    .project-info { min-width: 28px; min-height: 28px; }
+    .project-details { display: none; }
+    .project-info.is-open { flex: 1 0 100%; }
+    .project-info.is-open .project-details {
+        position: static;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
 
     .contact-container {
         position: relative;

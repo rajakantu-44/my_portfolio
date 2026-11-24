@@ -222,6 +222,18 @@ function showProjects(event) {
     });
 }
 
+// Make project details usable on touch screens as well as hover devices.
+document.addEventListener("click", function (event) {
+    const info = event.target.closest(".project-info");
+
+    document.querySelectorAll(".project-info.is-open").forEach(item => {
+        if (item !== info) item.classList.remove("is-open");
+    });
+
+    if (!info || event.target.closest(".project-details")) return;
+    info.classList.toggle("is-open");
+});
+
 function showContact(event) {
     event.preventDefault();
     clearText();
