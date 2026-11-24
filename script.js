@@ -134,10 +134,10 @@ function showEducation(event) {
     event.preventDefault();
 
     typeText("edu-text", [
-        "B.Sc. (Hons) Computer Science and Cognitive Systems | CGPA: 8.45/10 | 2024 - 2027",
+        "🎓B.Sc. (Hons) Computer Science and Cognitive Systems | CGPA: 8.45/10 | 2024 - 2027",
         "P.B. Siddhartha College of Arts and Science, Vijayawada",
-        "Intermediate (BiPC) | 93.4% |Andhra Loyola College, Vijayawada| 2022 - 2024",
-        "SSC | 87.3% | Abhyasa Vidyalayam, Gundala, Vijayawada| 2021 – 2022 "
+        "🏛️Intermediate (BiPC) | 93.4% |Andhra Loyola College, Vijayawada| 2022 - 2024",
+        "🏫SSC | 87.3% | Abhyasa Vidyalayam, Gundala, Vijayawada| 2021 – 2022 "
     ], 40);
 }
 function showSkills(event) {
