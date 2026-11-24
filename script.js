@@ -135,11 +135,7 @@ function showEducation(event) {
 
     typeText("edu-text", [
         "🎓B.Sc. (Hons) Computer Science and Cognitive Systems | CGPA: 8.45/10 | 2024 - 2027",
-<<<<<<< HEAD
         "P.B. Siddhartha College of Arts and Science, Vijayawada",
-=======
-          "P.B. Siddhartha College of Arts and Science, Vijayawada",
->>>>>>> 6be7c45 (second commit)
         "🏛️Intermediate (BiPC) | 93.4% |Andhra Loyola College, Vijayawada| 2022 - 2024",
         "🏫SSC | 87.3% | Abhyasa Vidyalayam, Gundala, Vijayawada| 2021 – 2022 "
     ], 40);
