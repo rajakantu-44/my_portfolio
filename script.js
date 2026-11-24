@@ -3,20 +3,14 @@
 const loader = document.getElementById("page-loader");
 const loaderStart = Date.now();
 
-window.addEventListener("load", function () {
-
-    const remaining = Math.max(0, 2800 - (Date.now() - loaderStart));
+// Do not keep the page covered while large background images are still downloading.
+setTimeout(() => {
+    loader.classList.add("loader-hidden");
 
     setTimeout(() => {
-        loader.classList.add("loader-hidden");
-
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 600);
-
-    }, remaining);
-
-});
+        loader.style.display = "none";
+    }, 600);
+}, Math.max(0, 2800 - (Date.now() - loaderStart)));
 // FALLING LEAVES CURSOR ANIMATION
 
 let lastLeafTime = 0;
@@ -210,12 +204,12 @@ function showProjects(event) {
         <i class="fa-brands fa-github"></i>
     </a>
 
-    <div class="project-info" tabindex="0" aria-label="Show project details">
+    <button type="button" class="project-info" aria-label="Show project details" aria-expanded="false">
         <i class="fa-solid fa-circle-info"></i>
-        <div class="project-details">
+        <span class="project-details">
             ${project.details}
-        </div>
-    </div>
+        </span>
+    </button>
 `;
 
         element.appendChild(card);
@@ -225,13 +219,24 @@ function showProjects(event) {
 // Make project details usable on touch screens as well as hover devices.
 document.addEventListener("click", function (event) {
     const info = event.target.closest(".project-info");
+    const card = event.target.closest(".project-card");
+    const clickedDetails = event.target.closest(".project-details");
 
     document.querySelectorAll(".project-info.is-open").forEach(item => {
-        if (item !== info) item.classList.remove("is-open");
+        if (item !== info) {
+            item.classList.remove("is-open");
+            item.setAttribute("aria-expanded", "false");
+        }
     });
 
-    if (!info || event.target.closest(".project-details")) return;
-    info.classList.toggle("is-open");
+    if (clickedDetails) return;
+
+    if (info || (card && !event.target.closest("a"))) {
+        const target = info || card.querySelector(".project-info");
+        const open = !target.classList.contains("is-open");
+        target.classList.toggle("is-open", open);
+        target.setAttribute("aria-expanded", String(open));
+    }
 });
 
 function showContact(event) {
