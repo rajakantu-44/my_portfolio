@@ -6,6 +6,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div style="display: flex; flex-direction: row; gap: 10px;" class="center">
+<h1 class="R1">R</h1>
+<h1 class="R2">A</h1>
+<h1 class="R3">J</h1>
+<h1 class="R4">A</h1>
+</div>
+<a href="#" class="glass-btn aboutme_btn" onclick="showAbout(event)">About Me</a>
+<a href="#" class="glass-btn edu_btn" onclick="showEducation(event)">Education</a>
+<a href="#" class="glass-btn skil_btn" onclick="showSkills(event)">Skills</a>
+<a href="#" class="glass-btn pro_btn" onclick="showProjects(event)">Projects</a>
+<a href="" class="glass-btn cont_btn" onclick="showContact(event)">Contact</a>
+<div id="about-text" class="section-text"></div>
+<div id="edu-text" class="section-text"></div>
+<div id="skill-text" class="section-text skills-container"></div>
+<div id="project-text" class="section-text projects-container"></div>
+<div id="contact-text" class="section-text"></div>
 <!-- LOADER -->
 <div id="page-loader">
 
@@ -28,23 +45,6 @@
     </div>
 
 </div>
-<div style="display: flex; flex-direction: row; gap: 10px;" class="center">
-<h1 class="R1">R</h1>
-<h1 class="R2">A</h1>
-<h1 class="R3">J</h1>
-<h1 class="R4">A</h1>
-</div>
-<a href="#" class="glass-btn aboutme_btn" onclick="showAbout(event)">About Me</a>
-<a href="#" class="glass-btn edu_btn" onclick="showEducation(event)">Education</a>
-<a href="#" class="glass-btn skil_btn" onclick="showSkills(event)">Skills</a>
-<a href="#" class="glass-btn pro_btn" onclick="showProjects(event)">Projects</a>
-<a href="" class="glass-btn cont_btn" onclick="showContact(event)">Contact</a>
-<div id="about-text" class="section-text"></div>
-<div id="edu-text" class="section-text"></div>
-<div id="skill-text" class="section-text skills-container"></div>
-<div id="project-text" class="section-text projects-container"></div>
-<div id="contact-text" class="section-text"></div>
-
 <!-- RESET BUTTON -->
 <button id="reset-btn" title="Reset Portfolio">
     <i class="fa-solid fa-rotate-right"></i>

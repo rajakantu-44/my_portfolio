@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 html,body{
 margin: 0;
     padding: 0;
@@ -78,7 +79,7 @@ a{
     transform: translateX(-50%);
     color: white;
     font-size: 25px;
-    font-family: 'Tektur';
+    font-family: 'Inter', sans-serif;
     white-space: pre-wrap;
 }
 .edu_btn{
@@ -94,10 +95,11 @@ a{
     left: 40px;
     color: white;
     font-size: 22px;
-    font-family: 'Tektur';
+    font-family: 'Inter', sans-serif;
     line-height: 1.8;
     text-align: left;
     white-space: pre-line;
+    text-shadow:-2px -2px #000000;
 }
 .skil_btn{
 position: absolute;
@@ -123,7 +125,7 @@ position: absolute;
 .skill-card {
     width: 120px;
     height: 60px;
-
+    padding-top: 10px; 
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -136,7 +138,7 @@ position: absolute;
     border-radius: 15px;
 
     color: white;
-    font-family: 'Tektur';
+    font-family: 'Inter', sans-serif;
     transition: 0.3s ease;
 }
 
@@ -191,7 +193,7 @@ position: absolute;
     border-radius: 15px;
 
     color: white;
-    font-family: 'Tektur';
+    font-family: 'Inter', sans-serif;
 }
 
 .project-name {
@@ -336,7 +338,7 @@ position: absolute;
 
 .contact-item a,
 .contact-item p {
-    font-size: 13px;
+    font-size: 16px;
     color: white;
     text-decoration: none;
     margin: 0;
