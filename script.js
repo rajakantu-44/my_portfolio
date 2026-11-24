@@ -182,13 +182,13 @@ function showProjects(event) {
     },
     {
         name: "Smart Resume Builder",
-        link: "https://github.com/yourusername/project",
+        link: "https://github.com/rajakantu-44/smart_resume_builder",
         repo: "https://github.com/rajakantu-44/smart_resume_builder",
         details: "Built a web app that helps students and job seekers create resumes, using the Gemini API for content suggestions | Techstack : HTML, CSS, JavaScript, Python Flask, Gemini API.."
     },
     {
         name: "Campus Care",
-        link: "https://github.com/yourusername/project",
+        link: "https://github.com/rajakantu-44/Campus-Care-Hackathon-",
         repo: "https://github.com/rajakantu-44/Campus-Care-Hackathon-",
         details: "Built during an intra-departmental college hackathon, a complaint management platform where students raise complaints and administrators track them by department | Techstack : HTML, CSS, JavaScript, Python, MongoDB, JWT Authentication, REST API"
     }
@@ -210,7 +210,7 @@ function showProjects(event) {
         <i class="fa-brands fa-github"></i>
     </a>
 
-    <div class="project-info">
+    <div class="project-info" tabindex="0" aria-label="Show project details">
         <i class="fa-solid fa-circle-info"></i>
         <div class="project-details">
             ${project.details}

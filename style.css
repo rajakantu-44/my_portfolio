@@ -711,3 +711,141 @@ position: absolute;
     color: black;
     transform: rotate(180deg);
 }
+
+/* RESPONSIVE LAYOUT */
+@media (min-width: 1201px) {
+    .center {
+        margin-right: clamp(0px, 18vw, 350px);
+        font-size: clamp(150px, 14vw, 200px);
+    }
+}
+
+@media (max-width: 1200px) {
+    .center {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        font-size: clamp(120px, 16vw, 190px);
+    }
+
+    .aboutme_btn { top: 9%; right: 17%; }
+    .edu_btn { top: 25%; right: 4%; }
+    .skil_btn { top: 43%; right: 8%; }
+    .pro_btn { bottom: 23%; right: 17%; }
+    .cont_btn { bottom: 8%; right: 38%; }
+
+    #about-text,
+    #edu-text,
+    .skills-container,
+    .projects-container,
+    #contact-text {
+        max-width: min(62vw, 650px);
+        max-height: 78vh;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+
+    .skills-container { grid-template-columns: repeat(4, minmax(90px, 1fr)); }
+    .projects-container { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(62vw, 650px); }
+    .project-card { width: auto; min-width: 0; }
+    .contact-container { width: min(62vw, 650px); }
+}
+
+@media (max-width: 700px) {
+    html,
+    body {
+        min-height: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .center {
+        top: 37%;
+        font-size: clamp(60px, 20vw, 120px);
+        gap: 2px !important;
+        letter-spacing: -4px;
+    }
+
+    .glass-btn {
+        padding: 8px 12px;
+        font-size: clamp(15px, 4.2vw, 20px);
+        border-radius: 10px;
+        white-space: nowrap;
+    }
+
+    .aboutme_btn { top: 7%; left: 4%; right: auto; transform: rotate(-5deg); }
+    .edu_btn { top: 7%; right: 4%; transform: rotate(5deg); }
+    .skil_btn { top: 22%; left: 4%; right: auto; transform: rotate(4deg); }
+    .pro_btn { top: 22%; right: 4%; bottom: auto; transform: rotate(-4deg); }
+    .cont_btn { top: 14.5%; left: 50%; right: auto; bottom: auto; transform: translateX(-50%) rotate(3deg); }
+
+    #about-text,
+    #edu-text,
+    .skills-container,
+    .projects-container,
+    #contact-text {
+        position: fixed;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        bottom: 3%;
+        width: auto;
+        max-width: none;
+        max-height: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overflow-wrap: anywhere;
+        box-sizing: border-box;
+        z-index: 5;
+        font-size: clamp(12px, 3.4vw, 14px);
+    }
+
+    #about-text { transform: none; }
+    #edu-text { top: 50%; left: 5%; line-height: 1.45; }
+    .skills-container { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-content: start; }
+    .skill-card { width: auto; min-width: 0; height: 64px; }
+    .projects-container { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .project-card { width: auto; }
+    .project-details { left: auto; right: 0; width: min(75vw, 330px); }
+
+    .contact-container {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-details { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+    .contact-item { min-width: 0; gap: 6px; padding: 6px; }
+    .contact-item i { font-size: 16px; }
+    .contact-item h3 { font-size: 10px; margin-bottom: 3px; }
+    .contact-item a,
+    .contact-item p { font-size: clamp(10px, 2.8vw, 12px); }
+    .contact-form { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; padding-top: 10px; }
+    .contact-form input,
+    .contact-form textarea { min-width: 0; padding: 8px; font-size: 12px; }
+    .contact-form textarea,
+    .contact-form button,
+    #form-status { grid-column: 1 / -1; }
+    .contact-form button { height: 38px; padding: 8px; font-size: 12px; }
+    .contact-form button { margin: 0; }
+    #form-status { margin: 0; }
+
+    #reset-btn {
+        top: 12px;
+        left: 50%;
+        right: auto;
+        width: 38px;
+        height: 38px;
+        transform: translateX(-50%);
+    }
+
+    #reset-btn:hover { transform: translateX(-50%) rotate(180deg); }
+}
+
+@media (max-width: 360px) {
+    .glass-btn { padding: 7px 9px; font-size: 14px; }
+    .center { font-size: 22vw; }
+}
