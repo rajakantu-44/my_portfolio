@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Tektur:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- LOADER -->
+<div id="page-loader">
+
+    <!-- LEAVES -->
+    <span class="leaf">🍃</span>
+    <span class="leaf">🍂</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🍂</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🍂</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🍂</span>
+
+<!-- NAME -->
+    <div class="loader-content">
+        <h1 class="loader-name">RAJA</h1>
+        <p class="loader-subtitle">MY PORTFOLIO</p>
+    </div>
+
+</div>
+<div style="display: flex; flex-direction: row; gap: 10px;" class="center">
+<h1 class="R1">R</h1>
+<h1 class="R2">A</h1>
+<h1 class="R3">J</h1>
+<h1 class="R4">A</h1>
+</div>
+<a href="#" class="glass-btn aboutme_btn" onclick="showAbout(event)">About Me</a>
+<a href="#" class="glass-btn edu_btn" onclick="showEducation(event)">Education</a>
+<a href="#" class="glass-btn skil_btn" onclick="showSkills(event)">Skills</a>
+<a href="#" class="glass-btn pro_btn" onclick="showProjects(event)">Projects</a>
+<a href="" class="glass-btn cont_btn" onclick="showContact(event)">Contact</a>
+<div id="about-text" class="section-text"></div>
+<div id="edu-text" class="section-text"></div>
+<div id="skill-text" class="section-text skills-container"></div>
+<div id="project-text" class="section-text projects-container"></div>
+<div id="contact-text" class="section-text"></div>
+
+<!-- RESET BUTTON -->
+<button id="reset-btn" title="Reset Portfolio">
+    <i class="fa-solid fa-rotate-right"></i>
+</button>
+<script src="script.js"></script>
+</body>
+</html>
