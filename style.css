@@ -1,4 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --theme-text: #fff;
+    --theme-accent: #b8c7d9;
+    --theme-muted: #aaa;
+    --theme-glass: rgba(255,255,255,0.1);
+    --theme-glass-hover: rgba(255,255,255,0.25);
+    --theme-border: rgba(255,255,255,0.5);
+    --theme-border-soft: rgba(255,255,255,0.3);
+    --theme-surface: rgba(255,255,255,0.1);
+    --theme-surface-hover: rgba(255,255,255,0.2);
+    --theme-detail-bg: rgba(15,15,15,0.95);
+    --theme-input-bg: rgba(255,255,255,0.46);
+    --theme-input-hover: rgba(255,255,255,0.9);
+    --theme-input-text: #111;
+    --theme-placeholder: #121212;
+    --theme-page-tint: transparent;
+    --theme-page-base: #080b09;
+    --theme-loader-bg: #080b09;
+}
+
+:root[data-theme="ocean"] {
+    --theme-text: #f2fbff;
+    --theme-accent: #72d8ff;
+    --theme-muted: #a9dff0;
+    --theme-glass: rgba(12,91,128,0.34);
+    --theme-glass-hover: rgba(21,130,171,0.48);
+    --theme-border: rgba(114,216,255,0.7);
+    --theme-border-soft: rgba(114,216,255,0.42);
+    --theme-surface: rgba(9,79,111,0.44);
+    --theme-surface-hover: rgba(13,105,145,0.58);
+    --theme-detail-bg: rgba(3,32,53,0.96);
+    --theme-input-bg: rgba(34,111,143,0.58);
+    --theme-input-hover: rgba(85,168,197,0.8);
+    --theme-input-text: #f2fbff;
+    --theme-placeholder: #d0edf6;
+    --theme-page-tint: rgba(8,58,86,0.3);
+    --theme-page-base: #061723;
+    --theme-loader-bg: #061723;
+}
+
+:root[data-theme="royal"] {
+    --theme-text: #fff7ff;
+    --theme-accent: #d5a5ff;
+    --theme-muted: #d8c2e8;
+    --theme-glass: rgba(88,43,119,0.35);
+    --theme-glass-hover: rgba(125,68,157,0.5);
+    --theme-border: rgba(213,165,255,0.72);
+    --theme-border-soft: rgba(213,165,255,0.42);
+    --theme-surface: rgba(72,32,98,0.48);
+    --theme-surface-hover: rgba(104,47,139,0.62);
+    --theme-detail-bg: rgba(30,12,43,0.96);
+    --theme-input-bg: rgba(105,66,128,0.6);
+    --theme-input-hover: rgba(151,102,174,0.82);
+    --theme-input-text: #fff7ff;
+    --theme-placeholder: #ead7f4;
+    --theme-page-tint: rgba(59,24,77,0.28);
+    --theme-page-base: #180d20;
+    --theme-loader-bg: #180d20;
+}
+
+:root[data-theme="sunset"] {
+    --theme-text: #fffaf2;
+    --theme-accent: #ffc477;
+    --theme-muted: #f2d3ad;
+    --theme-glass: rgba(129,67,32,0.34);
+    --theme-glass-hover: rgba(174,91,40,0.5);
+    --theme-border: rgba(255,196,119,0.72);
+    --theme-border-soft: rgba(255,196,119,0.44);
+    --theme-surface: rgba(102,52,27,0.46);
+    --theme-surface-hover: rgba(147,72,33,0.6);
+    --theme-detail-bg: rgba(43,20,12,0.96);
+    --theme-input-bg: rgba(145,86,49,0.56);
+    --theme-input-hover: rgba(190,122,72,0.82);
+    --theme-input-text: #fffaf2;
+    --theme-placeholder: #f7e5d2;
+    --theme-page-tint: rgba(103,43,17,0.26);
+    --theme-page-base: #26130e;
+    --theme-loader-bg: #26130e;
+}
+
 html,body{
 margin: 0;
     padding: 0;
@@ -9,12 +90,13 @@ margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;  
-    background-image:
-        url('assets/bg.png');
-
-    background-size: cover;
-    background-position: center;
+    background-image: linear-gradient(var(--theme-page-tint), var(--theme-page-tint)), url('assets/bg.png');
+    background-color: var(--theme-page-base);
+    background-blend-mode: normal;
+    background-position: center, calc(50% + var(--parallax-x, 0px)) calc(50% + var(--parallax-y, 0px));
+    background-size: auto, cover;
     background-repeat: no-repeat;
+    color: var(--theme-text);
     
 }
 
@@ -63,6 +145,13 @@ margin: 0;
     color: transparent;
 }
 
+.R1,
+.R2,
+.R3,
+.R4 {
+    background-size: contain;
+}
+
 a{
     text-decoration: none;
 }
@@ -77,7 +166,7 @@ a{
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
+    color: var(--theme-text);
     font-size: 25px;
     font-family: 'Inter', sans-serif;
     white-space: pre-wrap;
@@ -93,7 +182,7 @@ a{
     position: absolute;
     top: 30px;
     left: 40px;
-    color: white;
+    color: var(--theme-text);
     font-size: 22px;
     font-family: 'Inter', sans-serif;
     line-height: 1.8;
@@ -132,12 +221,12 @@ position: absolute;
     align-items: center;
     gap: 0px;
 
-    background: rgba(255,255,255,0.1);
+    background: var(--theme-surface);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 15px;
 
-    color: white;
+    color: var(--theme-text);
     font-family: 'Inter', sans-serif;
     transition: 0.3s ease;
 }
@@ -152,7 +241,7 @@ position: absolute;
 
 .skill-card:hover {
     transform: translateY(-5px);
-    background: rgba(255,255,255,0.2);
+    background: var(--theme-surface-hover);
 }
 /*-------------------------------------------------------*/
 .pro_btn{
@@ -186,18 +275,18 @@ position: absolute;
     align-items: center;
     gap: 5px;
 
-    background: rgba(255,255,255,0.1);
+    background: var(--theme-surface);
     backdrop-filter: blur(2px);
 
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 15px;
 
-    color: white;
+    color: var(--theme-text);
     font-family: 'Inter', sans-serif;
 }
 
 .project-name {
-    color: white;
+    color: var(--theme-text);
     text-decoration: none;
     cursor: pointer;
     position: relative;
@@ -215,7 +304,7 @@ position: absolute;
 
 /* GITHUB ICON */
 .project-github {
-    color: white;
+    color: var(--theme-text);
     font-size: 21px;
     text-decoration: none;
     transition: 0.3s ease;
@@ -223,7 +312,7 @@ position: absolute;
 
 .project-github:hover {
     transform: scale(1.2);
-    color: #aaa;
+    color: var(--theme-muted);
 }
 
 /* INFO ICON */
@@ -250,7 +339,7 @@ position: absolute;
     justify-content: center;
     align-items: center;
 
-    border: 1px solid white;
+    border: 1px solid var(--theme-border);
     border-radius: 50%;
 }
 
@@ -263,13 +352,13 @@ position: absolute;
     width: 330px;
     padding: 10px;
 
-    background: rgba(15,15,15,0.95);
+    background: var(--theme-detail-bg);
     backdrop-filter: blur(20px);
 
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 12px;
 
-    color: white;
+    color: var(--theme-text);
     font-size: 13px;
     line-height: 1.5;
 
@@ -307,7 +396,7 @@ position: absolute;
     height: calc(100% - 40px);
     display: flex;
     flex-direction: column;
-    color: white;
+    color: var(--theme-text);
     box-sizing: border-box;
 }
 
@@ -323,39 +412,39 @@ position: absolute;
     align-items: center;
     gap: 15px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.147);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 10px;
     transition: 0.3s ease;
 }
 
 .contact-item:hover {
-    background: rgba(255,255,255,0.12);
+    background: var(--theme-surface-hover);
     transform: translateY(-4px);
 }
 
 .contact-item i {
     font-size: 23px;
-    color: #b8c7d9;
+    color: var(--theme-accent);
 }
 
 .contact-item h3 {
     font-size: 14px;
     margin: 0 0 5px;
-    color: #aaa;
+    color: var(--theme-muted);
 }
 
 .contact-item a,
 .contact-item p {
     font-size: 16px;
-    color: white;
+    color: var(--theme-text);
     text-decoration: none;
     margin: 0;
     overflow-wrap: anywhere;
 }
 
 .contact-item a:hover {
-    color: #b8c7d9;
+    color: var(--theme-accent);
 }
 
 /* CONTACT FORM - BOTTOM */
@@ -374,11 +463,11 @@ position: absolute;
     width: 100%;
     box-sizing: border-box;
     padding: 13px 15px;
-    background: rgba(255, 255, 255, 0.458);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: var(--theme-input-bg);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 8px;
     outline: none;
-    color: rgb(255, 255, 255);
+    color: var(--theme-input-text);
     font-family: inherit;
     font-size: 14px;
     transition: 0.3s;
@@ -386,13 +475,13 @@ position: absolute;
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: #121212;
+    color: var(--theme-placeholder);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: #b8c7d9;
-    background: rgba(255,255,255,0.1);
+    border-color: var(--theme-accent);
+    background: var(--theme-surface);
 }
 
 /* MESSAGE FIELD */
@@ -404,9 +493,9 @@ position: absolute;
 /* SEND BUTTON */
 .contact-form button {
     padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.405);
-    color: rgb(13, 13, 13);
-    border: 1px solid rgba(255,255,255,0.3);
+    background: var(--theme-surface-hover);
+    color: var(--theme-text);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
@@ -417,8 +506,8 @@ position: absolute;
 }
 
 .contact-form button:hover {
-    background: white;
-    color: black;
+    background: var(--theme-accent);
+    color: #111;
 }
 
 .contact-form button i {
@@ -427,17 +516,17 @@ position: absolute;
 /* HOVER EFFECT */
 .contact-form input:hover,
 .contact-form textarea:hover {
-    background: white;
-    color: black;
-    border-color: white;
+    background: var(--theme-input-hover);
+    color: var(--theme-input-text);
+    border-color: var(--theme-accent);
 }
 
 /* TYPING / FOCUS EFFECT */
 .contact-form input:focus,
 .contact-form textarea:focus {
-    background: white;
-    color: black;
-    border-color: white;
+    background: var(--theme-input-hover);
+    color: var(--theme-input-text);
+    border-color: var(--theme-accent);
     outline: none;
 }
 
@@ -446,21 +535,21 @@ position: absolute;
 .contact-form textarea:hover::placeholder,
 .contact-form input:focus::placeholder,
 .contact-form textarea:focus::placeholder {
-    color: #666;
+    color: var(--theme-muted);
 }
 /*----------------------------------------------------*/
 .glass-btn {
     position: absolute;
     padding: 12px 25px;
 
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--theme-glass);
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
 
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--theme-border);
     border-radius: 12px;
 
-    color: white;
+    color: var(--theme-text);
     font-size: 25px;
     cursor: pointer;
     text-decoration: none;
@@ -471,9 +560,15 @@ position: absolute;
 }
 
 .glass-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: white;
+    background: var(--theme-glass-hover);
+    border-color: var(--theme-accent);
     filter: brightness(1.3);
+}
+
+.glass-btn.active {
+    background: var(--theme-glass-hover);
+    border-color: var(--theme-accent);
+    box-shadow: 0 0 16px var(--theme-border-soft);
 }
 .aboutme_btn,
 .edu_btn,
@@ -510,7 +605,7 @@ position: absolute;
 #page-loader {
     position: fixed;
     inset: 0;
-    background: #080b09;
+    background: var(--theme-loader-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -533,7 +628,7 @@ position: absolute;
 }
 
 .loader-name {
-    color: #f4f4f0;
+    color: var(--theme-text);
     font-family: Arial, sans-serif;
     font-size: 65px;
     font-weight: 600;
@@ -542,7 +637,7 @@ position: absolute;
 }
 
 .loader-subtitle {
-    color: #9aaa91;
+    color: var(--theme-accent);
     font-size: 10px;
     letter-spacing: 5px;
     margin-top: 15px;
@@ -695,7 +790,7 @@ position: absolute;
 #reset-btn {
     position: fixed;
     top: 25px;
-    right: 30px;
+    right: 82px;
     width: 42px;
     height: 42px;
 
@@ -703,11 +798,11 @@ position: absolute;
     align-items: center;
     justify-content: center;
 
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.25);
+    background: var(--theme-glass);
+    border: 1px solid var(--theme-border-soft);
     border-radius: 50%;
 
-    color: white;
+    color: var(--theme-text);
     font-size: 17px;
     cursor: pointer;
 
@@ -716,16 +811,76 @@ position: absolute;
 }
 
 #reset-btn:hover {
-    background: white;
-    color: black;
+    background: var(--theme-accent);
+    color: #111;
     transform: rotate(180deg);
 }
+
+#theme-btn {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-glass);
+    border: 1px solid var(--theme-border-soft);
+    border-radius: 50%;
+    color: var(--theme-text);
+    font-size: 17px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 0.3s ease;
+}
+
+#theme-btn:hover {
+    background: var(--theme-accent);
+    color: #111;
+    transform: rotate(-15deg) scale(1.05);
+}
+
+@keyframes royalLetterEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) rotateX(70deg) scale(0.55);
+    }
+    65% {
+        opacity: 1;
+        transform: translateY(-7px) rotateX(-8deg) scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0) scale(1);
+    }
+}
+
+body.page-ready .center { perspective: 700px; }
+
+body.page-ready .center h1 {
+    opacity: 0;
+    backface-visibility: hidden;
+    animation: royalLetterEntrance 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+body.page-ready .center h1:nth-child(1) { animation-delay: 0.08s; }
+body.page-ready .center h1:nth-child(2) { animation-delay: 0.28s; }
+body.page-ready .center h1:nth-child(3) { animation-delay: 0.48s; }
+body.page-ready .center h1:nth-child(4) { animation-delay: 0.68s; }
 
 /* RESPONSIVE LAYOUT */
 @media (min-width: 1201px) {
     .center {
         margin-right: clamp(0px, 18vw, 350px);
         font-size: clamp(150px, 14vw, 200px);
+    }
+}
+
+@media (min-width: 701px) and (hover: hover) and (pointer: fine) {
+    html,
+    body {
+        background-size: auto, calc(max(100vw, 200vh) + 36px) auto;
     }
 }
 
@@ -775,24 +930,32 @@ position: absolute;
     }
 
     .center {
-        top: 37%;
-        font-size: clamp(60px, 20vw, 120px);
+        top: 36%;
+        font-size: clamp(48px, 17vw, 95px);
         gap: 2px !important;
         letter-spacing: -4px;
+        perspective: 700px;
     }
 
     .glass-btn {
-        padding: 8px 12px;
-        font-size: clamp(15px, 4.2vw, 20px);
+        box-sizing: border-box;
+        width: max-content;
+        padding: 7px 10px;
+        font-size: clamp(13px, 3.8vw, 17px);
+        line-height: 1;
         border-radius: 10px;
         white-space: nowrap;
+        text-align: center;
     }
 
-    .aboutme_btn { top: 7%; left: 4%; right: auto; transform: rotate(-5deg); }
-    .edu_btn { top: 7%; right: 4%; transform: rotate(5deg); }
-    .skil_btn { top: 22%; left: 4%; right: auto; transform: rotate(4deg); }
-    .pro_btn { top: 22%; right: 4%; bottom: auto; transform: rotate(-4deg); }
-    .cont_btn { top: 14.5%; left: 50%; right: auto; bottom: auto; transform: translateX(-50%) rotate(3deg); }
+    .aboutme_btn { top: 8%; left: 50%; right: auto; transform: translateX(-100%); }
+    .edu_btn { top: 8%; left: 50%; right: auto; transform: none; }
+    .skil_btn,
+    .cont_btn,
+    .pro_btn { top: calc(8% + clamp(42px, calc(4vw + 28px), 48px)); bottom: auto; width: max-content; transform: none; }
+    .skil_btn { left: calc(50% - 5.4em - 33px); right: auto; }
+    .cont_btn { left: calc(50% - 2.6em - 11px); right: auto; }
+    .pro_btn { left: calc(50% + 1.1em + 11px); right: auto; }
 
     #about-text,
     #edu-text,
@@ -873,18 +1036,26 @@ position: absolute;
     #form-status { margin: 0; }
 
     #reset-btn {
-        top: 12px;
-        left: 50%;
+        top: 6px;
+        left: calc(50% - 41px);
         right: auto;
         width: 38px;
         height: 38px;
-        transform: translateX(-50%);
+        transform: none;
     }
 
-    #reset-btn:hover { transform: translateX(-50%) rotate(180deg); }
+    #reset-btn:hover { transform: rotate(180deg); }
+
+    #theme-btn {
+        top: 6px;
+        left: calc(50% + 3px);
+        right: auto;
+        width: 38px;
+        height: 38px;
+    }
 }
 
 @media (max-width: 360px) {
-    .glass-btn { padding: 7px 9px; font-size: 14px; }
-    .center { font-size: 22vw; }
+    .glass-btn { font-size: 14px; }
+    .center { font-size: 17vw; }
 }

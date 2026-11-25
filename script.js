@@ -9,8 +9,46 @@ setTimeout(() => {
 
     setTimeout(() => {
         loader.style.display = "none";
+        document.body.classList.add("page-ready");
     }, 600);
 }, Math.max(0, 2800 - (Date.now() - loaderStart)));
+
+// RANDOM THEMES
+const availableThemes = ["forest", "ocean", "royal", "sunset"];
+let savedTheme = null;
+try {
+    savedTheme = localStorage.getItem("portfolio-theme");
+} catch (error) {
+    // Keep the default theme when browser storage is unavailable.
+}
+document.documentElement.dataset.theme = availableThemes.includes(savedTheme) ? savedTheme : "forest";
+
+document.getElementById("theme-btn").addEventListener("click", function () {
+    const currentTheme = document.documentElement.dataset.theme;
+    const choices = availableThemes.filter(theme => theme !== currentTheme);
+    const nextTheme = choices[Math.floor(Math.random() * choices.length)];
+    document.documentElement.dataset.theme = nextTheme;
+    try {
+        localStorage.setItem("portfolio-theme", nextTheme);
+    } catch (error) {
+        // The selected theme still applies for this page view.
+    }
+});
+
+// LAPTOP BACKGROUND DEPTH
+if (window.matchMedia("(min-width: 701px) and (hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener("pointermove", function (event) {
+        const offsetX = (event.clientX / window.innerWidth - 0.5) * -18;
+        const offsetY = (event.clientY / window.innerHeight - 0.5) * -18;
+        document.documentElement.style.setProperty("--parallax-x", `${offsetX}px`);
+        document.documentElement.style.setProperty("--parallax-y", `${offsetY}px`);
+    }, { passive: true });
+
+    document.addEventListener("pointerleave", function () {
+        document.documentElement.style.setProperty("--parallax-x", "0px");
+        document.documentElement.style.setProperty("--parallax-y", "0px");
+    });
+}
 // FALLING LEAVES CURSOR ANIMATION
 
 let lastLeafTime = 0;
@@ -112,10 +150,15 @@ function typeText(elementId, content, speed = 40) {
     typeLine();
 }
 
+function setActiveSection(button) {
+    document.querySelectorAll(".glass-btn").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+}
 
 // ABOUT ME
 function showAbout(event) {
     event.preventDefault();
+    setActiveSection(event.currentTarget);
 
     typeText("about-text", [
         "Hello! I am Raja, a passionate developer interested in technology, creativity and innovation."
@@ -126,6 +169,7 @@ function showAbout(event) {
 // EDUCATION
 function showEducation(event) {
     event.preventDefault();
+    setActiveSection(event.currentTarget);
 
     typeText("edu-text", [
         "🎓B.Sc. (Hons) Computer Science and Cognitive Systems | CGPA: 8.45/10 | 2024 - 2027",
@@ -136,6 +180,7 @@ function showEducation(event) {
 }
 function showSkills(event) {
     event.preventDefault();
+    setActiveSection(event.currentTarget);
     clearText();
 
     let skills = [
@@ -165,6 +210,7 @@ function showSkills(event) {
 }
 function showProjects(event) {
     event.preventDefault();
+    setActiveSection(event.currentTarget);
     clearText();
 
     let projects = [
@@ -241,6 +287,7 @@ document.addEventListener("click", function (event) {
 
 function showContact(event) {
     event.preventDefault();
+    setActiveSection(event.currentTarget);
     clearText();
 
     const contact = document.getElementById("contact-text");
