@@ -204,7 +204,7 @@ position: absolute;
     width: 550px;
 
     display: grid;
-    grid-template-columns: repeat(4, 120px); /*change col number when new skills added*/
+    grid-template-columns: repeat(7, 120px); /*change col number when new skills added*/
     gap: 15px;
 
     justify-content: start;
@@ -242,6 +242,12 @@ position: absolute;
 .skill-card:hover {
     transform: translateY(-5px);
     background: var(--theme-surface-hover);
+}
+.skill-img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 /*-------------------------------------------------------*/
 .pro_btn{
@@ -455,6 +461,17 @@ position: absolute;
     margin-top: auto;
     padding-top: 30px;
     width: 100%;
+}
+
+.contact-form-title {
+    grid-column: 1 / -1;
+    margin: 0 0 2px;
+    color: var(--theme-text);
+    font-family: 'Tektur', sans-serif;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 /* INPUT FIELDS */

@@ -191,7 +191,13 @@ function showSkills(event) {
         { name: "JavaScript", icon: "fa-brands fa-js" },
         { name: "GitHub", icon: "fa-brands fa-github" },
         { name: "Flask", icon: "fa-solid fa-flask" },
-        { name: "Database", icon: "fa-solid fa-database" }
+        { name: "SQL,NOSQL", icon: "fa-solid fa-database" },
+        { name: "Streamlit", icon: '<img src="assets/streamlit.png" class="skill-img">' },
+        { name: "MySQL", icon: '<img src="assets/mysql.png" class="skill-img">' },
+        { name: "MongoDB", icon: '<img src="assets/mongodb.png" class="skill-img">' },
+        { name: "Selenium", icon: '<img src="assets/selenium.png" class="skill-img">' },
+        { name: "Power BI", icon: '<img src="assets/powerbi.png" class="skill-img">' },
+        { name: "GitHub", icon: '<img src="assets/github.png" class="skill-img">' }
     ];
 
     let element = document.getElementById("skill-text");
@@ -201,9 +207,12 @@ function showSkills(event) {
         card.className = "skill-card";
 
         card.innerHTML = `
-            <i class="${skill.icon}"></i>
-            <span>${skill.name}</span>
-        `;
+    ${skill.icon.startsWith('<img')
+        ? skill.icon
+        : `<i class="${skill.icon}"></i>`
+    }
+    <span>${skill.name}</span>
+`;
 
         element.appendChild(card);
     });
@@ -340,6 +349,8 @@ function showContact(event) {
 
             <!-- CONTACT FORM -->
             <form class="contact-form" id="contact-form">
+
+    <h2 class="contact-form-title">Get In Touch</h2>
 
     <!-- ROW 1 -->
     <input type="text" name="name" placeholder="Your Name" required>
