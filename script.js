@@ -33,6 +33,7 @@ document.getElementById("theme-btn").addEventListener("click", function () {
     } catch (error) {
         // The selected theme still applies for this page view.
     }
+
 });
 
 // LAPTOP BACKGROUND DEPTH
@@ -82,6 +83,7 @@ document.addEventListener("mousemove", function(e) {
     }, 2200);
 
 });
+
 // MAIN TYPING FUNCTION
 let typingTimer;
 let activeElementId = null;
@@ -161,7 +163,7 @@ function showAbout(event) {
     setActiveSection(event.currentTarget);
 
     typeText("about-text", [
-        "Hello! I am Raja, a passionate developer interested in technology, creativity and innovation."
+        "Hello! I'm Raja, an aspiring software developer with a strong passion for technology, problem-solving, and innovation. I enjoy transforming ideas into practical digital solutions through programming, creative thinking, and continuous learning.I strive to build meaningful projects, explore new possibilities, and continuously enhance my technical skills."
     ], 50);
 }
 
